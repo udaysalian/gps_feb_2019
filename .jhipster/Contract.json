@@ -1,0 +1,62 @@
+{
+    "name": "Contract",
+    "fields": [
+        {
+            "fieldName": "contrId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "updater",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "updateTimeStamp",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "businessUnit",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "contrLoc",
+            "otherEntityName": "contrLoc",
+            "otherEntityRelationshipName": "contract"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "rtSched",
+            "otherEntityName": "rateSched",
+            "otherEntityField": "rateScheduleCD",
+            "otherEntityRelationshipName": "contract"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "busAssoc",
+            "otherEntityName": "businessAssociate",
+            "otherEntityField": "baAbbr",
+            "otherEntityRelationshipName": "contracts"
+        }
+    ],
+    "changelogDate": "20190217223052",
+    "entityTableName": "contract",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

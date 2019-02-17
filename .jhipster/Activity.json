@@ -1,0 +1,100 @@
+{
+    "name": "Activity",
+    "fields": [
+        {
+            "fieldName": "contrId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "activityNbr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transactionType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "updater",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "updateTimeStamp",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "businessUnit",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "upstreamBA",
+            "otherEntityName": "businessAssociate",
+            "otherEntityField": "baAbbr",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "activity"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "downstreamBA",
+            "otherEntityName": "businessAssociate",
+            "otherEntityField": "baAbbr",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "activity"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "rtSched",
+            "otherEntityName": "rateSched",
+            "otherEntityField": "rateScheduleCD",
+            "otherEntityRelationshipName": "activity"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "receiptLocation",
+            "otherEntityName": "measurementStation",
+            "otherEntityField": "locationNbr",
+            "otherEntityRelationshipName": "activity"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "deliveryLocation",
+            "otherEntityName": "measurementStation",
+            "otherEntityField": "locationNbr",
+            "otherEntityRelationshipName": "activity"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "upstreamContract",
+            "otherEntityName": "contract",
+            "otherEntityField": "contrId",
+            "otherEntityRelationshipName": "activity"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "downstreamContract",
+            "otherEntityName": "contract",
+            "otherEntityField": "contrId",
+            "otherEntityRelationshipName": "activity"
+        }
+    ],
+    "changelogDate": "20190217223048",
+    "entityTableName": "activity",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
