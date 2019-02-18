@@ -48,5 +48,5 @@ after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=latest
 - export IMAGE_NAME=udaysalian/gps_feb_2019
-- docker tag gps_feb_2019 $IMAGe_NAME:$TAG
+- docker tag gps_feb_2019 $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME
