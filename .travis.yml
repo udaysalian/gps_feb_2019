@@ -38,10 +38,7 @@ script:
 - "./mvnw clean test"
 - "./mvnw com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run
   test-ci' -Dmaven.repo.local=$MAVEN_USER_HOME"
-#- "./mvnw verify -Pprod -DskipTests"
 - "./mvnw package -DSkipTests=true -Pprod jib:dockerBuild"
-#- "./mvnw com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm
-#  -Dheroku.appName=gps-netra"
 notifications:
   webhooks:
     on_success: change
